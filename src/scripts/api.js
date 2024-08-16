@@ -21,11 +21,10 @@ const config = {
     }
 }
 
-const processResult = res => {
+const checkResult = res => {
     if (res.ok) {
         return res.json()
     }
-
     return Promise.reject(`Упс...: ${res.status}`)
 }
 
@@ -37,26 +36,17 @@ export const API = ({ url, method = methods.GET, body }) => {
     })
 }
 
-const getMe = () => API({ url: paths.me() }).then(processResult)
-const updateMe = (body) => API({ url: paths.me(), method: methods.PATCH, body }).then(processResult)
-const updateAvatar = (body) => API({ url: `${paths.me()}/avatar`, method: methods.PATCH, body }).then(processResult)
+const getUser = () => API({ url: paths.me() }).then(checkResult)
+const updateUser = (body) => API({ url: paths.me(), method: methods.PATCH, body }).then(checkResult)
+const updateAvatar = (body) => API({ url: `${paths.me()}/avatar`, method: methods.PATCH, body }).then(checkResult)
 
-const getCards = () => API({ url: paths.cards() }).then(processResult)
-const createCard = (body) => API({ url: paths.cards(), method: methods.POST, body }).then(processResult)
-const removeCard = (id) => API({ url: paths.card(id), method: methods.DELETE }).then(processResult)
+const getCards = () => API({ url: paths.cards() }).then(checkResult)
+const createCard = (body) => API({ url: paths.cards(), method: methods.POST, body }).then(checkResult)
+const removeCard = (id) => API({ url: paths.card(id), method: methods.DELETE }).then(checkResult)
 
-const addLike = (id) => API({ url: paths.likeCard(id), method: methods.PUT }).then(processResult)
-const removeLike = (id) => API({ url: paths.likeCard(id), method: methods.DELETE }).then(processResult)
+const addLike = (id) => API({ url: paths.likeCard(id), method: methods.PUT }).then(checkResult)
+const removeLike = (id) => API({ url: paths.likeCard(id), method: methods.DELETE }).then(checkResult)
 
-export const serverActions = {
-    getMe,
-    updateMe,
-    updateAvatar,
-
-    getCards,
-    createCard,
-    removeCard,
-
-    addLike,
-    removeLike,
+export const apiRequests = {
+    getUser,updateUser,updateAvatar,getCards,createCard,removeCard,addLike,removeLike,
 }
