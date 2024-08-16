@@ -1,5 +1,3 @@
-// Функция создания карточки
-
 export const createCard = (cardTemplate, { name, link, _id, likes }, removeCallback, likeCallback, imageCallback) => {
   const cardTemplateContent = cardTemplate.content;
   const cardNode = cardTemplateContent.querySelector(".card").cloneNode(true);

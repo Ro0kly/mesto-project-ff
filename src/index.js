@@ -4,11 +4,7 @@ import { closeModal, openModal } from './scripts/modal';
 import { apiRequests } from './scripts/api';
 import { clearValidation, enableValidation } from './scripts/validation';
 
-// Темплейт карточки
-
 const cardTemplate = document.getElementById("card-template");
-
-// DOM узлы
 
 const cardsContainer = document.querySelector(".places__list");
 const addCardButton = document.querySelector(".profile__add-button");
