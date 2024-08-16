@@ -11,8 +11,7 @@ const closeByClick = (e) => {
         !e.target.classList.contains('popup__close')
     ) return;
 
-    const openedPopup = document.querySelector('.popup_is-opened');
-    closeModal(openedPopup);
+    closeModal(e.currentTarget);
 }
 
 export const closeModal = (node) => { 
