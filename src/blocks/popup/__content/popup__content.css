@@ -9,6 +9,10 @@
   padding: 34px 36px;
 }
 
+.popup__content_height_fit {
+  min-height: fit-content;
+}
+
 @media screen and (max-width: 568px) {
   .popup__content {
     width: 100%;
